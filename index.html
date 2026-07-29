@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angular 17 Hands-on Lab - Environment Setup (Windows 10 + VS Code)</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Segoe UI,Arial,sans-serif;
+    background:#f5f7fa;
+    color:#333;
+    line-height:1.7;
+}
+
+header{
+    background:#c3002f;
+    color:#fff;
+    padding:30px;
+    text-align:center;
+}
+
+main{
+    max-width:1100px;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+}
+
+section{
+    margin-bottom:35px;
+}
+
+h2{
+    color:#c3002f;
+    border-bottom:2px solid #ddd;
+    padding-bottom:8px;
+    margin-bottom:15px;
+}
+
+h3{
+    color:#005792;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table th{
+    background:#005792;
+    color:white;
+}
+
+table th,
+table td{
+    border:1px solid #ccc;
+    padding:10px;
+    text-align:left;
+}
+
+pre{
+    background:#222;
+    color:#00ff99;
+    padding:15px;
+    overflow:auto;
+    border-radius:5px;
+}
+
+code{
+    font-family:Consolas;
+}
+
+.flow{
+    background:#eef8ff;
+    border-left:6px solid #005792;
+    padding:20px;
+    font-weight:bold;
+    white-space:pre-line;
+}
+
+.step{
+    background:#fafafa;
+    border-left:5px solid #c3002f;
+    padding:18px;
+    margin-bottom:20px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#666;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Angular 17 Hands-on Lab</h1>
+
+<p>Environment Setup using Windows 10 + Visual Studio Code</p>
+
+</header>
+
+<main>
+
+<section>
+
+<h2>Goal</h2>
+
+<p>
+
+Install all required software, create an Angular 17 project, run the application successfully, and open
+<strong>http://localhost:4200</strong>.
+
+</p>
+
+</section>
+
+<section>
+
+<h2>Executive Summary</h2>
+
+<table>
+
+<tr>
+<th>Software</th>
+<th>Recommended Version</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td>Windows</td>
+<td>Windows 10 (64-bit)</td>
+<td>Operating System</td>
+</tr>
+
+<tr>
+<td>Google Chrome</td>
+<td>Latest Stable</td>
+<td>Run Angular Application</td>
+</tr>
+
+<tr>
+<td>Visual Studio Code</td>
+<td>Latest Stable</td>
+<td>Code Editor</td>
+</tr>
+
+<tr>
+<td>Node.js</td>
+<td>20.x LTS</td>
+<td>JavaScript Runtime</td>
+</tr>
+
+<tr>
+<td>npm</td>
+<td>10.x</td>
+<td>Package Manager</td>
+</tr>
+
+<tr>
+<td>Angular CLI</td>
+<td>17.x</td>
+<td>Create and Manage Angular Projects</td>
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Angular 17 Setup Flow</h2>
+
+<div class="flow">
+
+Install VS Code
+↓
+Install Node.js
+↓
+Verify node & npm
+↓
+Install Angular CLI 17
+↓
+Verify ng version
+↓
+Create Workspace
+↓
+ng new EmployeeManagement
+↓
+Routing → Yes
+CSS → CSS
+SSR → No
+↓
+cd EmployeeManagement
+↓
+code .
+↓
+ng serve
+↓
+http://localhost:4200
+↓
+Angular Application Running ✅
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Hands-on Lab (Windows 10)</h2>
+
+<article class="step">
+
+<h3>Step 1 - Install Visual Studio Code</h3>
+
+<p><strong>Purpose:</strong> IDE used to write Angular code.</p>
+
+<ol>
+
+<li>Download Visual Studio Code.</li>
+
+<li>Run the installer.</li>
+
+<li>Accept License Agreement.</li>
+
+<li>Click Next.</li>
+
+<li>Select "Add to PATH".</li>
+
+<li>Click Install.</li>
+
+<li>Launch VS Code.</li>
+
+</ol>
+
+</article>
+
+<article class="step">
+
+<h3>Step 2 - Install Node.js (LTS)</h3>
+
+<p><strong>Purpose:</strong> Required to execute Angular CLI and npm.</p>
+
+<ol>
+
+<li>Download Node.js LTS (20.x).</li>
+
+<li>Run Installer.</li>
+
+<li>Accept License.</li>
+
+<li>Click Next.</li>
+
+<li>Install npm.</li>
+
+<li>Click Finish.</li>
+
+</ol>
+
+</article>
+
+<article class="step">
+
+<h3>Step 3 - Verify Node.js</h3>
+
+<p>Open Command Prompt.</p>
+
+<pre><code>node -v
+
+npm -v</code></pre>
+
+<p>Expected Output</p>
+
+<pre><code>v20.x.x
+
+10.x.x</code></pre>
+
+</article>
+
+<article class="step">
+
+<h3>Step 4 - Install Angular CLI 17</h3>
+
+<pre><code>npm install -g @angular/cli@17</code></pre>
+
+<p>Wait until installation completes.</p>
+
+</article>
+
+<article class="step">
+
+<h3>Step 5 - Verify Angular CLI</h3>
+
+<pre><code>ng version</code></pre>
+
+<p>Expected Output</p>
+
+<pre><code>Angular CLI : 17.x.x</code></pre>
+
+</article>
+
+<article class="step">
+
+<h3>Step 6 - Create Workspace</h3>
+
+<pre><code>cd D:\
+
+mkdir AngularProjects
+
+cd AngularProjects</code></pre>
+
+</article>
+
+<article class="step">
+
+<h3>Step 7 - Create Angular Project</h3>
+
+<pre><code>ng new EmployeeManagement</code></pre>
+
+<p><strong>Select Options</strong></p>
+
+<table>
+
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+
+<tr>
+<td>Routing</td>
+<td>Yes</td>
+</tr>
+
+<tr>
+<td>Stylesheet</td>
+<td>CSS</td>
+</tr>
+
+<tr>
+<td>SSR / SSG</td>
+<td>No</td>
+</tr>
+
+</table>
+
+</article>
+
+<article class="step">
+
+<h3>Step 8 - Open Project in VS Code</h3>
+
+<pre><code>cd EmployeeManagement
+
+code .</code></pre>
+
+</article>
+
+<article class="step">
+
+<h3>Step 9 - Run Angular Application</h3>
+
+<pre><code>ng serve</code></pre>
+
+<p>Angular starts the Development Server.</p>
+
+</article>
+
+<article class="step">
+
+<h3>Step 10 - Open Browser</h3>
+
+<pre><code>http://localhost:4200</code></pre>
+
+<p>
+
+The Angular welcome page appears.
+
+</p>
+
+</article>
+
+</section>
+
+<section>
+
+<h2>Complete Command List</h2>
+
+<pre><code>node -v
+
+npm -v
+
+npm install -g @angular/cli@17
+
+ng version
+
+cd D:\AngularProjects
+
+ng new EmployeeManagement
+
+cd EmployeeManagement
+
+code .
+
+ng serve
+</code></pre>
+
+</section>
+
+<section>
+
+<h2>Expected Result</h2>
+
+<ul>
+
+<li>✔ Visual Studio Code Installed</li>
+
+<li>✔ Node.js Installed</li>
+
+<li>✔ npm Working</li>
+
+<li>✔ Angular CLI 17 Installed</li>
+
+<li>✔ EmployeeManagement Project Created</li>
+
+<li>✔ Project Opened in VS Code</li>
+
+<li>✔ Angular Development Server Running</li>
+
+<li>✔ Browser opens http://localhost:4200</li>
+
+<li>✔ Angular 17 Application Running Successfully</li>
+
+</ul>
+
+</section>
+
+<footer>
+
+<p><strong>Angular 17 Hands-on Lab - Day 1: Environment Setup Completed Successfully</strong></p>
+
+</footer>
+
+</main>
+
+</body>
+</html>
+```
