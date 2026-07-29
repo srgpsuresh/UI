@@ -1,0 +1,521 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angular 17 Handbook - Page 1</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Segoe UI,Arial,sans-serif;
+    background:#f4f6f9;
+    color:#333;
+    line-height:1.7;
+}
+
+header{
+    background:#C3002F;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+header h1{
+    font-size:38px;
+}
+
+header p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+nav{
+    background:#003366;
+    color:white;
+    padding:15px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+    justify-content:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+main{
+    max-width:1200px;
+    margin:auto;
+    padding:30px;
+}
+
+section{
+    background:white;
+    margin-bottom:30px;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+
+h2{
+    color:#C3002F;
+    margin-bottom:15px;
+}
+
+h3{
+    color:#005792;
+    margin-top:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+table th{
+    background:#005792;
+    color:white;
+}
+
+table th,
+table td{
+    border:1px solid #ddd;
+    padding:12px;
+}
+
+figure{
+    text-align:center;
+    margin:20px 0;
+}
+
+figure img{
+    width:100%;
+    max-width:700px;
+    border-radius:6px;
+}
+
+figcaption{
+    margin-top:8px;
+    color:#666;
+}
+
+.flow{
+    background:#EEF7FF;
+    border-left:6px solid #005792;
+    padding:20px;
+    font-weight:bold;
+    white-space:pre-line;
+}
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fafafa;
+    border-left:5px solid #C3002F;
+    padding:20px;
+}
+
+footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Angular 17 Executive Handbook</h1>
+
+<p>Page 1 - Why Angular? Purpose & Real-Time Understanding</p>
+
+</header>
+
+<nav>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#">Why Angular</a></li>
+
+<li><a href="#">Purpose</a></li>
+
+<li><a href="#">Real-Time Example</a></li>
+
+<li><a href="#">Summary</a></li>
+
+</ul>
+
+</nav>
+
+<main>
+
+<section>
+
+<h2>Learning Goal</h2>
+
+<p>
+
+Understand why Angular was created, where it is used in the real world,
+and why companies choose Angular for enterprise applications.
+
+</p>
+
+</section>
+
+<section>
+
+<h2>What is Angular?</h2>
+
+<p>
+
+Angular is an open-source frontend framework developed by Google for building
+modern Single Page Applications (SPA).
+
+</p>
+
+<figure>
+
+<img src="images/angular-logo.png" alt="Angular Logo">
+
+<figcaption>
+
+Figure 1 : Angular Framework
+
+</figcaption>
+
+</figure>
+
+</section>
+
+<section>
+
+<h2>Why Angular?</h2>
+
+<p>
+
+Imagine Amazon or Flipkart.
+
+If every click reloads the entire website,
+customers experience slower navigation and a poor user experience.
+
+Angular updates only the required part of the page instead of reloading
+the complete website.
+
+</p>
+
+<div class="flow">
+
+Traditional Website
+
+↓
+
+Click Product
+
+↓
+
+Entire Page Reloads
+
+↓
+
+Slow User Experience
+
+
+
+Angular Application
+
+↓
+
+Click Product
+
+↓
+
+Only Product Component Updates
+
+↓
+
+Fast User Experience
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Real-Time Example</h2>
+
+<article>
+
+<h3>Employee Management System</h3>
+
+<table>
+
+<tr>
+
+<th>User Action</th>
+
+<th>Angular Behavior</th>
+
+</tr>
+
+<tr>
+
+<td>Login</td>
+
+<td>Login Component Loads</td>
+
+</tr>
+
+<tr>
+
+<td>Click Employees</td>
+
+<td>Employee Component Updates</td>
+
+</tr>
+
+<tr>
+
+<td>Add Employee</td>
+
+<td>Only Form Refreshes</td>
+
+</tr>
+
+<tr>
+
+<td>Edit Employee</td>
+
+<td>Only Selected Record Changes</td>
+
+</tr>
+
+<tr>
+
+<td>Delete Employee</td>
+
+<td>Grid Refreshes Without Reloading Page</td>
+
+</tr>
+
+</table>
+
+</article>
+
+<figure>
+
+<img src="images/employee-dashboard.png"
+alt="Employee Dashboard">
+
+<figcaption>
+
+Figure 2 : Employee Management Dashboard
+
+</figcaption>
+
+</figure>
+
+</section>
+
+<section>
+
+<h2>Purpose of Angular</h2>
+
+<div class="card-container">
+
+<div class="card">
+
+<h3>Reusable Components</h3>
+
+<p>
+
+Build once and reuse anywhere.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Fast Navigation</h3>
+
+<p>
+
+Only required content changes.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Maintainability</h3>
+
+<p>
+
+Easy to modify and extend applications.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Enterprise Ready</h3>
+
+<p>
+
+Suitable for Banking, Healthcare,
+Retail and Government projects.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Where is Angular Used?</h2>
+
+<ul>
+
+<li>Employee Management Systems</li>
+
+<li>Banking Applications</li>
+
+<li>Hospital Management Systems</li>
+
+<li>E-Commerce Portals</li>
+
+<li>ERP Applications</li>
+
+<li>Government Portals</li>
+
+<li>Inventory Systems</li>
+
+<li>CRM Applications</li>
+
+<li>HR Management Systems</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>Benefits of Angular</h2>
+
+<table>
+
+<tr>
+
+<th>Benefit</th>
+
+<th>Explanation</th>
+
+</tr>
+
+<tr>
+
+<td>Fast</td>
+
+<td>Single Page Application</td>
+
+</tr>
+
+<tr>
+
+<td>Reusable</td>
+
+<td>Components reduce duplicate code</td>
+
+</tr>
+
+<tr>
+
+<td>Scalable</td>
+
+<td>Supports enterprise applications</td>
+
+</tr>
+
+<tr>
+
+<td>Maintainable</td>
+
+<td>Clean folder structure</td>
+
+</tr>
+
+<tr>
+
+<td>Secure</td>
+
+<td>Supports route guards and secure coding practices</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Executive Summary</h2>
+
+<p>
+
+Angular helps developers build modern,
+fast, scalable, maintainable web applications.
+
+Instead of refreshing the entire page after every click,
+Angular updates only the required portion of the screen,
+making applications faster and providing a better user experience.
+
+This is why Angular is widely adopted for enterprise software such as banking,
+healthcare, e-commerce, and employee management systems.
+
+</p>
+
+</section>
+
+</main>
+
+<footer>
+
+<h3>Angular 17 Hands-on Learning Handbook</h3>
+
+<p>Page 1 of the Angular 17 Fresher Series</p>
+
+</footer>
+
+</body>
+
+</html>
+```
