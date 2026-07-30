@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Angular 17 Project Flow - How Angular Starts</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Segoe UI,Arial,sans-serif;
+    }
+
+    body{
+        background:#f4f7fb;
+        color:#222;
+        line-height:1.7;
+        padding:30px;
+    }
+
+    header{
+        background:#dd0031;
+        color:white;
+        padding:25px;
+        border-radius:10px;
+        margin-bottom:25px;
+        text-align:center;
+    }
+
+    header h1{
+        font-size:34px;
+    }
+
+    header p{
+        margin-top:10px;
+        font-size:18px;
+    }
+
+    main{
+        max-width:1100px;
+        margin:auto;
+    }
+
+    section{
+        background:white;
+        margin-bottom:20px;
+        border-radius:10px;
+        padding:20px;
+        box-shadow:0 3px 10px rgba(0,0,0,.08);
+    }
+
+    h2{
+        color:#dd0031;
+        margin-bottom:10px;
+    }
+
+    h3{
+        color:#0066cc;
+        margin-top:15px;
+        margin-bottom:8px;
+    }
+
+    ul{
+        margin-left:25px;
+    }
+
+    code{
+        background:#efefef;
+        padding:3px 6px;
+        border-radius:5px;
+    }
+
+    .flow{
+        text-align:center;
+        font-size:20px;
+        font-weight:bold;
+        color:#dd0031;
+        line-height:2;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:15px;
+    }
+
+    table th{
+        background:#dd0031;
+        color:white;
+        padding:12px;
+    }
+
+    table td{
+        border:1px solid #ddd;
+        padding:12px;
+        vertical-align:top;
+    }
+
+    footer{
+        text-align:center;
+        margin-top:30px;
+        color:#555;
+        font-weight:bold;
+    }
+
+    .highlight{
+        color:#dd0031;
+        font-weight:bold;
+    }
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Angular 17 Project Flow</h1>
+
+<p>Understanding How Angular Application Starts (Execution Flow)</p>
+
+</header>
+
+<main>
+
+<section>
+
+<h2>Angular Startup Flow</h2>
+
+<div class="flow">
+
+ng serve
+<br>↓<br>
+
+angular.json
+<br>↓<br>
+
+index.html
+<br>↓<br>
+
+main.ts
+<br>↓<br>
+
+app.config.ts
+<br>↓<br>
+
+app.routes.ts
+<br>↓<br>
+
+app.component.ts
+<br>↓<br>
+
+app.component.html
+<br>↓<br>
+
+app.component.css
+<br>↓<br>
+
+Browser Output (localhost:4200)
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Step-by-Step Execution</h2>
+
+<article>
+
+<h3>1. ng serve</h3>
+
+<p><strong>Purpose</strong></p>
+
+<ul>
+
+<li>Starts Angular Development Server.</li>
+
+<li>Compiles TypeScript into JavaScript.</li>
+
+<li>Runs the application on <code>http://localhost:4200</code>.</li>
+
+<li>Automatically refreshes the browser whenever files are saved.</li>
+
+</ul>
+
+<p><strong>Command</strong></p>
+
+<code>ng serve</code>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>2. angular.json</h3>
+
+<p><strong>Purpose</strong></p>
+
+<ul>
+
+<li>Main project configuration file.</li>
+
+<li>Identifies which Angular project to run (EmployeeManagement).</li>
+
+<li>Specifies the <code>src</code> folder.</li>
+
+<li>Loads global styles.</li>
+
+<li>Loads assets.</li>
+
+<li>Controls build and serve options.</li>
+
+</ul>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>3. src/index.html</h3>
+
+<p><strong>Purpose</strong></p>
+
+<ul>
+
+<li>First HTML page loaded by the browser.</li>
+
+<li>Contains the root Angular tag.</li>
+
+</ul>
+
+<pre>
+&lt;body&gt;
+    &lt;app-root&gt;&lt;/app-root&gt;
+&lt;/body&gt;
+</pre>
+
+<p>Angular replaces <code>&lt;app-root&gt;</code> with the application's UI.</p>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>4. src/main.ts</h3>
+
+<p><strong>Purpose</strong></p>
+
+<ul>
+
+<li>Main entry point of Angular.</li>
+
+<li>Starts the application.</li>
+
+<li>Bootstraps the root component.</li>
+
+</ul>
+
+<p><strong>Flow</strong></p>
+
+<pre>
+ng serve
+      ↓
+main.ts starts
+      ↓
+Bootstrap Angular
+</pre>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>5. app.config.ts</h3>
+
+<p><strong>Purpose</strong></p>
+
+<p>Application Configuration File.</p>
+
+<ul>
+
+<li>Routing Configuration</li>
+
+<li>Register Services</li>
+
+<li>HTTP Client</li>
+
+<li>Dependency Injection Providers</li>
+
+<li>Animations</li>
+
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre>
+provideRouter(routes)
+
+provideHttpClient()
+
+providers:[]
+</pre>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>6. app.routes.ts</h3>
+
+<p><strong>Purpose</strong></p>
+
+<p>Navigation (Routing) File.</p>
+
+<p>Maps URLs to Components.</p>
+
+<table>
+
+<tr>
+<th>URL</th>
+<th>Component</th>
+</tr>
+
+<tr>
+<td>/</td>
+<td>Home</td>
+</tr>
+
+<tr>
+<td>/employee</td>
+<td>Employee</td>
+</tr>
+
+<tr>
+<td>/department</td>
+<td>Department</td>
+</tr>
+
+<tr>
+<td>/login</td>
+<td>Login</td>
+</tr>
+
+</table>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>7. app.component.ts</h3>
+
+<p><strong>Purpose</strong></p>
+
+<ul>
+
+<li>Main Component.</li>
+
+<li>Contains Business Logic.</li>
+
+<li>Handles Events.</li>
+
+<li>Calls Services.</li>
+
+<li>Processes Data.</li>
+
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre>
+Employee Management
+↓
+
+Load Employees
+
+↓
+
+Display Employees
+
+↓
+
+Save Employee
+
+↓
+
+Delete Employee
+</pre>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>8. app.component.html</h3>
+
+<p><strong>Purpose</strong></p>
+
+<ul>
+
+<li>User Interface (UI).</li>
+
+<li>Displays data.</li>
+
+<li>Buttons, Tables, Forms.</li>
+
+<li>Uses Angular Bindings.</li>
+
+</ul>
+
+<p><strong>Example</strong></p>
+
+<ul>
+
+<li>Employee List</li>
+
+<li>Add Employee Form</li>
+
+<li>Edit Button</li>
+
+<li>Delete Button</li>
+
+</ul>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>9. app.component.css</h3>
+
+<p><strong>Purpose</strong></p>
+
+<ul>
+
+<li>Styles the component.</li>
+
+<li>Colors.</li>
+
+<li>Fonts.</li>
+
+<li>Spacing.</li>
+
+<li>Responsive Layout.</li>
+
+</ul>
+
+</article>
+
+<hr>
+
+<article>
+
+<h3>10. Browser Output</h3>
+
+<p>Finally the browser displays the application.</p>
+
+<p>
+
+<span class="highlight">
+
+http://localhost:4200
+
+</span>
+
+</p>
+
+<p>
+
+Employee Management Application
+
+</p>
+
+</article>
+
+</section>
+
+<section>
+
+<h2>Complete Angular Execution Flow</h2>
+
+<pre>
+
+Developer
+
+    │
+
+    ▼
+
+ng serve
+
+    │
+
+    ▼
+
+angular.json
+
+    │
+
+    ▼
+
+index.html
+
+    │
+
+    ▼
+
+main.ts
+
+    │
+
+    ▼
+
+Bootstrap Application
+
+    │
+
+    ▼
+
+app.config.ts
+
+    │
+
+    ▼
+
+app.routes.ts
+
+    │
+
+    ▼
+
+app.component.ts
+
+    │
+
+    ▼
+
+app.component.html
+
+    │
+
+    ▼
+
+app.component.css
+
+    │
+
+    ▼
+
+Browser (localhost:4200)
+
+    │
+
+    ▼
+
+Employee Management Application
+
+</pre>
+
+</section>
+
+<section>
+
+<h2>Quick Revision Table</h2>
+
+<table>
+
+<tr>
+<th>Step</th>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>ng serve</td>
+<td>Starts Angular Development Server</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>angular.json</td>
+<td>Project Configuration</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>index.html</td>
+<td>First HTML Page</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>main.ts</td>
+<td>Application Entry Point</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>app.config.ts</td>
+<td>Configure Providers, Routing, HTTP</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>app.routes.ts</td>
+<td>Navigation / Routing</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>app.component.ts</td>
+<td>Business Logic</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>app.component.html</td>
+<td>User Interface</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>app.component.css</td>
+<td>Styling</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Browser</td>
+<td>Displays Final Output</td>
+</tr>
+
+</table>
+
+</section>
+
+</main>
+
+<footer>
+
+Angular 17 Execution Flow • From <strong>ng serve</strong> to <strong>Browser Output</strong>
+
+</footer>
+
+</body>
+</html>
