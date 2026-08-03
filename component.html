@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angular 17 - Components Hands-on Lab</title>
+
+<style>
+body{
+    font-family:Segoe UI,Arial,sans-serif;
+    line-height:1.7;
+    margin:30px;
+    background:#f5f7fa;
+}
+
+header{
+    background:#1976d2;
+    color:white;
+    padding:20px;
+    border-radius:8px;
+}
+
+section{
+    background:white;
+    padding:20px;
+    margin-top:20px;
+    border-radius:8px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+h2{
+    color:#1976d2;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+table,th,td{
+    border:1px solid #ccc;
+}
+
+th{
+    background:#1976d2;
+    color:white;
+}
+
+th,td{
+    padding:10px;
+}
+
+pre{
+    background:#272822;
+    color:#f8f8f2;
+    padding:15px;
+    border-radius:5px;
+    overflow:auto;
+}
+
+.flow{
+    text-align:center;
+    font-weight:bold;
+    line-height:2;
+}
+
+.success{
+    background:#e8f5e9;
+    border-left:5px solid green;
+    padding:15px;
+}
+
+.warning{
+    background:#fff3cd;
+    border-left:5px solid orange;
+    padding:15px;
+}
+
+footer{
+    margin-top:30px;
+    text-align:center;
+    color:#666;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>Angular 17 Hands-on Lab</h1>
+
+<h2>Module 3 - Components</h2>
+
+<p>
+Goal:
+Learn Components by building a simple Employee Management System.
+</p>
+
+</header>
+
+<section>
+
+<h2>Learning Objectives</h2>
+
+<ul>
+
+<li>Understand Components</li>
+
+<li>Create Components</li>
+
+<li>Use Component Selector</li>
+
+<li>Parent → Child Communication (Basic)</li>
+
+<li>Understand Rendering Flow</li>
+
+<li>Build Simple Layout</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>What is a Component?</h2>
+
+<p>
+
+A Component is a reusable UI block.
+
+It contains
+
+</p>
+
+<ul>
+
+<li>HTML (View)</li>
+
+<li>TypeScript (Logic)</li>
+
+<li>CSS (Design)</li>
+
+</ul>
+
+<h3>Real-Time Example</h3>
+
+<pre>
+
+Employee Management
+
+------------------------------------
+
+Header
+
+Sidebar
+
+Dashboard
+
+Footer
+
+------------------------------------
+
+</pre>
+
+<p>
+
+Each section is an independent Component.
+
+</p>
+
+</section>
+
+<section>
+
+<h2>Why Components?</h2>
+
+<table>
+
+<tr>
+
+<th>Without Components</th>
+
+<th>With Components</th>
+
+</tr>
+
+<tr>
+
+<td>
+
+One HTML file
+
+10000 lines
+
+</td>
+
+<td>
+
+Header
+
+Sidebar
+
+Dashboard
+
+Footer
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>Difficult Maintenance</td>
+
+<td>Easy Maintenance</td>
+
+</tr>
+
+<tr>
+
+<td>No Reuse</td>
+
+<td>Reusable</td>
+
+</tr>
+
+<tr>
+
+<td>Hard to Debug</td>
+
+<td>Easy Debugging</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Step 1 - Generate Components</h2>
+
+<pre>
+
+ng g c components/header
+
+ng g c components/sidebar
+
+ng g c components/dashboard
+
+ng g c components/footer
+
+</pre>
+
+<h3>Output</h3>
+
+<pre>
+
+src
+
+└── app
+
+    └── components
+
+        ├── header
+
+        ├── sidebar
+
+        ├── dashboard
+
+        └── footer
+
+</pre>
+
+</section>
+
+<section>
+
+<h2>Step 2 - Component Structure</h2>
+
+<pre>
+
+header
+
+│
+
+├── header.component.ts
+
+├── header.component.html
+
+├── header.component.css
+
+└── header.component.spec.ts
+
+</pre>
+
+<table>
+
+<tr>
+
+<th>File</th>
+
+<th>Purpose</th>
+
+</tr>
+
+<tr>
+
+<td>TS</td>
+
+<td>Business Logic</td>
+
+</tr>
+
+<tr>
+
+<td>HTML</td>
+
+<td>User Interface</td>
+
+</tr>
+
+<tr>
+
+<td>CSS</td>
+
+<td>Design</td>
+
+</tr>
+
+<tr>
+
+<td>SPEC</td>
+
+<td>Unit Testing</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Step 3 - Component Selector</h2>
+
+<p>
+
+Header Component Selector
+
+</p>
+
+<pre>
+
+selector:'app-header'
+
+</pre>
+
+<p>
+
+Use inside app.component.html
+
+</p>
+
+<pre>
+
+&lt;app-header&gt;&lt;/app-header&gt;
+
+</pre>
+
+</section>
+
+<section>
+
+<h2>Step 4 - Import Component (Angular 17 Standalone)</h2>
+
+<pre>
+
+imports:
+
+[
+
+HeaderComponent
+
+]
+
+</pre>
+
+<p>
+
+Without importing the component,
+
+Angular cannot recognize
+
+&lt;app-header&gt;.
+
+</p>
+
+</section>
+
+<section>
+
+<h2>Step 5 - Rendering Flow</h2>
+
+<div class="flow">
+
+ng serve
+
+↓
+
+angular.json
+
+↓
+
+index.html
+
+↓
+
+main.ts
+
+↓
+
+app.component.ts
+
+↓
+
+app.component.html
+
+↓
+
+&lt;app-header&gt;
+
+↓
+
+header.component.html
+
+↓
+
+Browser
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Step 6 - Final Layout</h2>
+
+<pre>
+
++------------------------------------------------+
+
+| Employee Management System                     |
+
++------------------------------------------------+
+
+| Sidebar           Dashboard                    |
+
+|                                               |
+
+|                                               |
+
++------------------------------------------------+
+
+| Footer                                        |
+
++------------------------------------------------+
+
+</pre>
+
+</section>
+
+<section>
+
+<h2>Execution Flow</h2>
+
+<div class="flow">
+
+Developer
+
+↓
+
+Create Component
+
+↓
+
+Angular Generates Files
+
+↓
+
+Import Component
+
+↓
+
+Use Selector
+
+↓
+
+Browser Renders HTML
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Common Errors</h2>
+
+<table>
+
+<tr>
+
+<th>Error</th>
+
+<th>Reason</th>
+
+<th>Solution</th>
+
+</tr>
+
+<tr>
+
+<td>
+
+'app-header' is not a known element
+
+</td>
+
+<td>
+
+HeaderComponent not imported
+
+</td>
+
+<td>
+
+Add HeaderComponent to imports[]
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Nothing displayed
+
+</td>
+
+<td>
+
+Selector missing
+
+</td>
+
+<td>
+
+Add
+
+&lt;app-header&gt;
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Compilation Error
+
+</td>
+
+<td>
+
+Wrong Import Path
+
+</td>
+
+<td>
+
+Correct import statement
+
+</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Expected Output</h2>
+
+<div class="success">
+
+Employee Management System
+
+<br><br>
+
+Header
+
+<br>
+
+Sidebar
+
+Dashboard
+
+<br>
+
+Footer
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Interview Questions</h2>
+
+<table>
+
+<tr>
+
+<th>Question</th>
+
+<th>Answer</th>
+
+</tr>
+
+<tr>
+
+<td>What is Component?</td>
+
+<td>Reusable UI Block</td>
+
+</tr>
+
+<tr>
+
+<td>Why Components?</td>
+
+<td>Reuse and Easy Maintenance</td>
+
+</tr>
+
+<tr>
+
+<td>Component contains?</td>
+
+<td>HTML + TS + CSS</td>
+
+</tr>
+
+<tr>
+
+<td>What is Selector?</td>
+
+<td>Custom HTML Tag</td>
+
+</tr>
+
+<tr>
+
+<td>Who is Parent?</td>
+
+<td>AppComponent</td>
+
+</tr>
+
+<tr>
+
+<td>Who are Children?</td>
+
+<td>Header, Sidebar, Dashboard, Footer</td>
+
+</tr>
+
+<tr>
+
+<td>Angular 17 Requirement?</td>
+
+<td>Import Standalone Components in imports[]</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>Easy Revision</h2>
+
+<pre>
+
+Component
+
+↓
+
+Generate
+
+↓
+
+Import
+
+↓
+
+Selector
+
+↓
+
+Render
+
+↓
+
+Browser
+
+</pre>
+
+<p>
+
+Remember:
+
+<strong>Create → Import → Use Selector → Render</strong>
+
+</p>
+
+</section>
+
+<footer>
+
+Angular 17 Hands-on Lab • Module 3 • Components
+
+</footer>
+
+</body>
+</html>
