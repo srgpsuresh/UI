@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular 17 Hands-on Lab - Component Creation</title>
+</head>
+
+<body>
+
+<header>
+
+    <h1>Angular 17 Hands-on Lab</h1>
+
+    <h2>Mini Project - Employee Management System</h2>
+
+    <p>
+        Goal: Learn Angular Components by building a simple Employee Management
+        application step by step.
+    </p>
+
+</header>
+
+<hr>
+
+<main>
+
+<section>
+
+<h2>Learning Objectives</h2>
+
+<ul>
+
+<li>Create reusable Angular Components</li>
+
+<li>Understand Parent and Child Components</li>
+
+<li>Use Angular CLI</li>
+
+<li>Understand Component Folder Structure</li>
+
+<li>Display Components on Screen</li>
+
+<li>Build a simple Layout</li>
+
+</ul>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Expected Output</h2>
+
+<pre>
+
++------------------------------------------------------+
+|          Employee Management System                  |
++------------------------------------------------------+
+| Header                                               |
++------------------------------------------------------+
+| Sidebar             | Dashboard                      |
+|                     |                                |
+|                     | Welcome Employee               |
+|                     |                                |
++------------------------------------------------------+
+| Footer                                               |
++------------------------------------------------------+
+
+</pre>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Step 1 - Generate Header Component</h2>
+
+<h3>Command</h3>
+
+<pre>
+ng generate component components/header
+</pre>
+
+<h3>Purpose</h3>
+
+<p>
+Creates a reusable Header Component.
+</p>
+
+<h3>Generated Files</h3>
+
+<pre>
+
+src/app/components/header/
+
+│
+
+├── header.component.ts
+
+├── header.component.html
+
+├── header.component.css
+
+└── header.component.spec.ts
+
+</pre>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Step 2 - Generate Sidebar Component</h2>
+
+<pre>
+ng generate component components/sidebar
+</pre>
+
+<p>
+
+Creates Navigation Menu.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Step 3 - Generate Dashboard Component</h2>
+
+<pre>
+ng generate component components/dashboard
+</pre>
+
+<p>
+
+Displays Employee Dashboard.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Step 4 - Generate Footer Component</h2>
+
+<pre>
+ng generate component components/footer
+</pre>
+
+<p>
+
+Displays Copyright Information.
+
+</p>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Project Folder Structure</h2>
+
+<pre>
+
+src
+
+└── app
+
+    ├── components
+
+    │
+
+    ├── header
+
+    ├── sidebar
+
+    ├── dashboard
+
+    └── footer
+
+</pre>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Step 5 - Header Component</h2>
+
+<article>
+
+<h3>header.component.html</h3>
+
+<pre>
+
+&lt;header&gt;
+
+    &lt;h1&gt;Employee Management System&lt;/h1&gt;
+
+&lt;/header&gt;
+
+</pre>
+
+<h3>header.component.css</h3>
+
+<pre>
+
+header{
+
+background:#0d6efd;
+
+color:white;
+
+padding:20px;
+
+text-align:center;
+
+}
+
+</pre>
+
+</article>
+
+<h3>Output</h3>
+
+<pre>
+
+-----------------------------------------
+
+Employee Management System
+
+-----------------------------------------
+
+</pre>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Step 6 - Sidebar Component</h2>
+
+<article>
+
+<h3>sidebar.component.html</h3>
+
+<pre>
+
+&lt;aside&gt;
+
+    &lt;h3&gt;Menu&lt;/h3&gt;
+
+    &lt;ul&gt;
+
+        &lt;li&gt;Dashboard&lt;/li&gt;
+
+        &lt;li&gt;Employees&lt;/li&gt;
+
+        &lt;li&gt;Departments&lt;/li&gt;
+
+        &lt;li&gt;Reports&lt;/li&gt;
+
+    &lt;/ul&gt;
+
+&lt;/aside&gt;
+
+</pre>
+
+</article>
+
+<h3>Output</h3>
+
+<pre>
+
+Menu
+
+Dashboard
+
+Employees
+
+Departments
+
+Reports
+
+</pre>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Step 7 - Dashboard Component</h2>
+
+<article>
+
+<h3>dashboard.component.html</h3>
+
+<pre>
+
+&lt;section&gt;
+
+    &lt;h2&gt;Dashboard&lt;/h2&gt;
+
+    &lt;p&gt;
+
+        Welcome to Employee Management System
+
+    &lt;/p&gt;
+
+&lt;/section&gt;
+
+</pre>
+
+</article>
+
+<h3>Output</h3>
+
+<pre>
+
+Dashboard
+
+Welcome to Employee Management System
+
+</pre>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Step 8 - Footer Component</h2>
+
+<article>
+
+<h3>footer.component.html</h3>
+
+<pre>
+
+&lt;footer&gt;
+
+Copyright © 2026
+
+&lt;/footer&gt;
+
+</pre>
+
+</article>
+
+<h3>Output</h3>
+
+<pre>
+
+----------------------------------
+
+Copyright © 2026
+
+----------------------------------
+
+</pre>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Step 9 - Combine All Components</h2>
+
+<article>
+
+<h3>app.component.html</h3>
+
+<pre>
+
+&lt;app-header&gt;&lt;/app-header&gt;
+
+&lt;div class="container"&gt;
+
+    &lt;app-sidebar&gt;&lt;/app-sidebar&gt;
+
+    &lt;app-dashboard&gt;&lt;/app-dashboard&gt;
+
+&lt;/div&gt;
+
+&lt;app-footer&gt;&lt;/app-footer&gt;
+
+</pre>
+
+</article>
+
+<h3>app.component.css</h3>
+
+<pre>
+
+.container{
+
+display:flex;
+
+}
+
+app-sidebar{
+
+width:250px;
+
+}
+
+app-dashboard{
+
+flex:1;
+
+}
+
+</pre>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Final Browser Output</h2>
+
+<pre>
+
++------------------------------------------------------+
+
+Employee Management System
+
++------------------------------------------------------+
+
+Menu              Dashboard
+
+Dashboard         Welcome Employee
+
+Employees
+
+Departments
+
+Reports
+
++------------------------------------------------------+
+
+Copyright © 2026
+
++------------------------------------------------------+
+
+</pre>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Execution Flow</h2>
+
+<pre>
+
+ng serve
+
+↓
+
+AppComponent
+
+↓
+
+&lt;app-header&gt;
+
+↓
+
+HeaderComponent
+
+↓
+
+&lt;app-sidebar&gt;
+
+↓
+
+SidebarComponent
+
+↓
+
+&lt;app-dashboard&gt;
+
+↓
+
+DashboardComponent
+
+↓
+
+&lt;app-footer&gt;
+
+↓
+
+FooterComponent
+
+↓
+
+Browser
+
+</pre>
+
+</section>
+
+<hr>
+
+<section>
+
+<h2>Interview Questions</h2>
+
+<details>
+
+<summary>What is a Component?</summary>
+
+<p>
+
+A reusable UI building block consisting of HTML, TypeScript, and CSS.
+
+</p>
+
+</details>
+
+<details>
+
+<summary>Why Components?</summary>
+
+<p>
+
+To divide a large application into smaller, reusable, maintainable parts.
+
+</p>
+
+</details>
+
+<details>
+
+<summary>What is a Parent Component?</summary>
+
+<p>
+
+A component that contains other components.
+
+Example: AppComponent.
+
+</p>
+
+</details>
+
+<details>
+
+<summary>What is a Child Component?</summary>
+
+<p>
+
+A component rendered inside another component using its selector.
+
+</p>
+
+</details>
+
+<details>
+
+<summary>How are Components displayed?</summary>
+
+<p>
+
+Angular replaces the component selector
+(e.g., &lt;app-header&gt;)
+with the HTML from HeaderComponent.
+
+</p>
+
+</details>
+
+</section>
+
+<hr>
+
+<footer>
+
+<h2>Hands-on Lab Summary</h2>
+
+<pre>
+
+Angular CLI
+
+↓
+
+Generate Components
+
+↓
+
+Write HTML
+
+↓
+
+Apply CSS
+
+↓
+
+Use Selector
+
+↓
+
+Combine Components
+
+↓
+
+Run ng serve
+
+↓
+
+View Browser
+
+</pre>
+
+</footer>
+
+</main>
+
+</body>
+
+</html>
